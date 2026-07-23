@@ -1,17 +1,10 @@
 import sys
 import argparse
+from dir_scan.scanner import scan
 
-from scraper import send_req
 
-def print_options():
-    options = ["[+] Img to Loc ",
-                "[+] Crawler",
-                "[+] WebScrapper"]
-    for op in options:
-        print(op)
+from site_spider.scraper.scraper import send_req
 
-def cli_mode():
-    print_options()
 
 
 def main():
@@ -27,7 +20,7 @@ def main():
 
     # Finds end points.
     if args.find:
-        code = send_req(args.find)
+        code = scan(args.find)
         print(code)
 
     # Scraps data from websites.
@@ -38,9 +31,9 @@ def main():
     if args.cli:
         pass
 
-    # Finds Gps data from an img.
-    if args.img2loc:
-        print(f"Finding location for:")
+    # # Finds Gps data from an img.
+    # if args.img2loc:
+    #     print(f"Finding location for:")
     
     
 
